@@ -11,6 +11,11 @@ namespace UnityStandardAssets._2D
             {
                 SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
             }
+
+            if (other.tag == "Enemy")
+            {
+                Destroy(other.gameObject);
+            }
         }
     }
 }
