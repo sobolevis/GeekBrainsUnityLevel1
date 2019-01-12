@@ -2,15 +2,29 @@
 
 public class EnemyController : MonoBehaviour
 {
-    private Animation _animation;
+    int heath;
 
-    void Start()
+    private void Start()
     {
-        _animation = GetComponent<Animation>();
+        heath = 2;
     }
 
-    void Update()
+    public int Health
     {
-        
+        get => heath;
+        set
+        {
+            heath = value;
+            if (heath <= 0) Death();
+        }
     }
+
+    public SpawnerController Spawner { get; set; }
+
+    void Death()
+    {
+        Spawner.Spawn();
+        Destroy(gameObject);
+    }
+
 }
