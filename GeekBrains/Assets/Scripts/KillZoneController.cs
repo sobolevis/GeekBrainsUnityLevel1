@@ -5,6 +5,7 @@ public class KillZoneController : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene("MainScene");
+        if (collision.tag == "Player") SceneManager.LoadScene("MainScene");
+        else Destroy(collision.gameObject);
     }
 }

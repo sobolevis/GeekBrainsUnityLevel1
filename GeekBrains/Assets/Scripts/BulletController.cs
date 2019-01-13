@@ -4,12 +4,17 @@ public class BulletController : MonoBehaviour
 {
     public int Direction;
     public float Speed;
-    public int Damage;    
+    public int Damage;
 
-    private void Update()
+    private void Start()
+    {
+        GetComponent<Rigidbody2D>().AddForce(Vector2.right * Direction * Speed, ForceMode2D.Impulse);
+    }
+
+    /*private void Update()
     {
         Move();
-    }
+    }*/
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,12 +27,12 @@ public class BulletController : MonoBehaviour
     }
 
     void Move()
-    {
-        transform.position += Vector3.right * Direction * Speed;
+    {        
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + new Vector3(Direction, 0, 0), Speed * Time.deltaTime);
     }
 
     private void OnBecameInvisible()
     {
-        Destroy(gameObject, 2f);
+        Destroy(gameObject);
     }
 }

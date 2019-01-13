@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2752876724396620919}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,9 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d09289f5f4621f49a923c0002054fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 13
-  speed: 3.5
-  bullet: {fileID: 6729792964878265738, guid: e958834e23ed4a643824e9e2a5e5da4f, type: 3}
+  JumpForce: 13
+  Speed: 3.5
+  Bullet: {fileID: 6729792964878265738, guid: e958834e23ed4a643824e9e2a5e5da4f, type: 3}
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!95 &2752876724396620912
 Animator:
   serializedVersion: 3
