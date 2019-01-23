@@ -1,17 +1,32 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class SpawnerController : MonoBehaviour
 {
     public GameObject Obj;
+    GameObject currentEnemy;
+    WaitForSeconds delaySpawn = new WaitForSeconds(3f);    
+    bool spawned = false;
 
-    private void Start()
+    private void Update()
     {
-        Spawn();
+        if (currentEnemy == null && !spawned)
+        {
+            spawned = !spawned;
+            Spawn();
+        }        
     }
 
     public void Spawn()
     {
-        GameObject temp = Instantiate(Obj, transform.position, Quaternion.identity);
-        temp.GetComponent<EnemyController>().Spawner = this;
+        StartCoroutine("Coroutine");
     }
+
+    IEnumerator Coroutine()
+    {
+        yield return delaySpawn;
+        currentEnemy = Instantiate(Obj, transform.position, Quaternion.identity);
+        spawned = !spawned;
+    }
+
 }

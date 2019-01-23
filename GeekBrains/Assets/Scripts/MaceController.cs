@@ -1,31 +1,14 @@
 ﻿using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class MaceController : MonoBehaviour
 {
-    int heath;
-    int damage;
     int pushForce;
+    int damage;
 
     private void Start()
     {
-        heath = 2;
         damage = 1;
         pushForce = 5;
-    }
-
-    public int Health
-    {
-        get => heath;
-        set
-        {
-            heath = value;
-            if (heath <= 0) Death();
-        }
-    }
-
-    void Death()
-    {
-        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -34,7 +17,6 @@ public class EnemyController : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerController>().Health -= damage;
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.transform.position - transform.position) * pushForce, ForceMode2D.Impulse);
-        }        
+        }
     }
-
 }
