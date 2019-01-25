@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class Camera : MonoBehaviour
 {
     public GameObject target;
     public float Left;

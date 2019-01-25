@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MaceController : MonoBehaviour
+public class Mace : MonoBehaviour
 {
     int pushForce;
     int damage;
@@ -15,8 +15,8 @@ public class MaceController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerController>().Health -= damage;
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.transform.position - transform.position) * pushForce, ForceMode2D.Impulse);
+            collision.gameObject.GetComponent<Player>().Health -= damage;
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.transform.position - transform.position).normalized * pushForce, ForceMode2D.Impulse);
         }
     }
 }
