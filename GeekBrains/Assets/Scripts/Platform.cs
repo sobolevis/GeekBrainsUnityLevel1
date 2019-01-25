@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlatformController : MonoBehaviour
+public class Platform : MonoBehaviour
 {
     public Vector3 startPosition;
     public Vector3 finishPosition;

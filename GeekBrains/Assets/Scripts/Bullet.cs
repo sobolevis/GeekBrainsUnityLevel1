@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     public int Direction;
     public float Speed;
@@ -18,7 +18,7 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var temp = other.gameObject.GetComponent<EnemyController>();
+        var temp = other.gameObject.GetComponent<Enemy>();
         if (temp != null)
         {
             temp.Health -= Damage;

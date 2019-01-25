@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class SpawnerController : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     public GameObject Obj;
     GameObject currentEnemy;
